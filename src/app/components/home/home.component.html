@@ -1,0 +1,165 @@
+<div class="container mt-5">
+  <h2 class="text-center">Video Game Animations Demo</h2>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <!-- Animation 1: Fade In (New Enemy) -->
+        <div [@fadeIn]="isFadeIn ? 'show' : 'hide'" class="box enemy">
+          <img
+            src="https://www.nintendo.com/eu/media/images/10_share_images/portals_3/2x1_Hub_TheLegendOfZelda_ToTK_image1600w.jpg"
+            alt="New Enemy"
+            class="img-fluid"
+          />
+          <p>New Enemy Appears!</p>
+          <button class="btn btn-danger" (click)="isFadeIn = !isFadeIn">
+            {{ isFadeIn ? "Deactivate" : "Activate" }} Enemy
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <!-- Animation 2: Slide In (Bonus Item) -->
+        <div [@slideIn]="isSlideIn ? 'show' : 'hide'" class="box bonus-item">
+          <img
+            src="https://sm.ign.com/t/ign_latam/screenshot/default/mario_d4q6.1280.jpg"
+            alt="Bonus Item"
+            class="img-fluid"
+          />
+          <p>¡Artículo de bonificación adquirido!</p>
+          <button class="btn btn-success" (click)="isSlideIn = !isSlideIn">
+            {{ isSlideIn ? "Deactivate" : "Activate" }} Bonus
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <!-- Animation 3: Bounce (Player Jump) -->
+        <div [@bounce]="isBounce ? 'bounce' : 'normal'" class="box player">
+          <img
+            src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2022/11/god-war-ragnarok-2874817.jpg"
+            alt="Player Jumping"
+            class="img-fluid"
+          />
+          <p>Jugador saltando!</p>
+          <button class="btn btn-warning" (click)="isBounce = !isBounce">
+            {{ isBounce ? "Deactivate" : "Activate" }} Jump
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-4">
+      <div class="col-md-4">
+        <!-- Animation 4: Rotate (Power Up) -->
+        <div [@rotate]="isRotate ? 'rotate' : 'normal'" class="box power-up">
+          <img
+            src="https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2021/10/minecraft-realms-2502459.jpg"
+            alt="Power Up"
+            class="img-fluid"
+          />
+          <p>¡Enciende el giro!</p>
+          <button class="btn btn-info" (click)="isRotate = !isRotate">
+            {{ isRotate ? "Deactivate" : "Activate" }} Power Up
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <!-- Animation 5: Flip (Character Change) -->
+        <div [@flip]="isFlip ? 'flip' : 'normal'" class="box character-change">
+          <img
+            src="https://cdn2.unrealengine.com/hero-key-art-1920x1080-2742a939d0f8.jpg"
+            alt="Character Change"
+            class="img-fluid"
+          />
+          <p>¡Volteo de personaje!</p>
+          <button class="btn btn-primary" (click)="isFlip = !isFlip">
+            {{ isFlip ? "Deactivate" : "Activate" }} Flip
+          </button>
+        </div>
+      </div>
+
+      <!-- Animation 6: Carrucel -->
+      <div class="col-md-4">
+        <div [@carouselAnimation] class="box inventory">
+          <img [src]="currentImage" alt="Inventory Image" class="img-fluid" />
+          <p>¡Expansión del inventario!</p>
+          <button class="btn btn-secondary" (click)="startCarousel()">
+            <i class="fas fa-play"></i>
+          </button>
+          <button class="btn btn-secondary" (click)="stopCarousel()">
+            <i class="fas fa-stop"></i>
+          </button>
+          <button class="btn btn-secondary" (click)="previousImage()">
+            <i class="fas fa-backward"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-md-4">
+          <!-- Animation 7: Collapse (Close Inventory) -->
+          <div class="box inventory">
+            <img
+              [@collapse]="isCollapse ? 'collapsed' : 'expanded'"
+              src="//www.revistaeyn.com/binrepository/1776x900/288c0/1200d900/none/26086/RXRH/ea-fifa-videojuego_5650320_20230927100119.jpg"
+              alt="Close Inventory"
+              class="img-fluid"
+            />
+            <p>¡El inventario colapsa!</p>
+            <button class="btn btn-danger" (click)="isCollapse = !isCollapse">
+              {{ isCollapse ? "Deactivate" : "Activate" }} Collapse
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <!-- Animation 8: Flash (Hit Effect) -->
+          <div class="box hit-effect">
+            <img
+              [@flash]="isFlash ? 'flash' : 'normal'"
+              src="https://media.vandal.net/i/1280x720/1-2024/31/20241311031892_1.jpg"
+              alt="Hit Effect"
+              class="img-fluid"
+            />
+            <p>¡Efecto de golpe!</p>
+            <button class="btn btn-warning" (click)="isFlash = !isFlash">
+              {{ isFlash ? "Deactivate" : "Activate" }} Flash
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <!-- Animation 9: Jello (Special Move) -->
+          <div [@jello]="isJello ? 'jello' : 'normal'" class="box special-move">
+            <img
+              src="https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_DragonBallTheBreakers_image1600w.jpg"
+              alt="Special Move"
+              class="img-fluid"
+            />
+            <p>Gelatina de movimiento especial!</p>
+            <button class="btn btn-success" (click)="isJello = !isJello">
+              {{ isJello ? "Deactivate" : "Activate" }} Jello
+            </button>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <!-- Animation 10: Zoom (Level Up) -->
+          <div [@zoom]="isZoom ? 'zoom' : 'normal'" class="box level-up">
+            <img
+              src="https://assetsio.gnwcdn.com/Sparking-Zero-Gotenks.webp?width=690&quality=75&format=jpg&auto=webp"
+              alt="Level Up"
+              class="img-fluid"
+            />
+            <p>¡Animación para subir de nivel!</p>
+            <button class="btn btn-primary" (click)="isZoom = !isZoom">
+              {{ isZoom ? "Deactivate" : "Activate" }} Zoom
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
